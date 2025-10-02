@@ -17,7 +17,12 @@ export const ThemeToggle = () => {
     setMounted(true);
   }, []);
 
-  if (!mounted) return null;
+  if (!mounted)
+    return (
+      <div className="flex items-center rounded-md p-2 hover:bg-neutral-100 dark:hover:bg-neutral-800">
+        <div className="size-4" />
+      </div>
+    );
 
   return (
     <button

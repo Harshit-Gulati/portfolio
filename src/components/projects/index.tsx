@@ -5,6 +5,7 @@ import { Project } from "@/constants/projects";
 import { SectionHeading } from "../section-heading";
 import { useRef } from "react";
 import { ProjectCard } from "./project-card";
+import { Heading } from "../heading";
 
 export const Projects = ({ projects }: { projects: Project[] }) => {
   const divRef = useRef<HTMLDivElement | null>(null);
@@ -13,10 +14,13 @@ export const Projects = ({ projects }: { projects: Project[] }) => {
   return (
     <div
       ref={divRef}
-      className="shadow-section-inset my-4 border-y border-neutral-100 px-4 py-4 dark:border-neutral-900"
+      className="mt-4 border-neutral-100 px-4 dark:border-neutral-900"
     >
-      <SectionHeading delay={0.2}>I love building stuff.</SectionHeading>
-      <div className="grid grid-cols-1 gap-4 py-4 md:grid-cols-3">
+      <SectionHeading delay={0.2} className="mb-2 px-2">
+        I love building stuff.
+      </SectionHeading>
+      <Heading>Projects</Heading>
+      <div className="grid grid-cols-1 gap-8 py-4 md:grid-cols-2">
         {projects.map((project, idx) => (
           <ProjectCard
             idx={idx}

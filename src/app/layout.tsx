@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description: "Passionate Software Developer",
   icons: {
     icon: "/favicon.ico",
-    apple: "/android-chrom-512x512.png",
+    apple: "/web-app-manifest-512x512.png",
   },
 };
 
@@ -32,7 +32,7 @@ export default function RootLayout({
         <body>
           <ThemeProvider attribute="class" defaultTheme="dark">
             <main
-              className={`${inter.className} relative bg-neutral-100 antialiased [--pattern-fg:var(--color-neutral-950)]/5 dark:bg-neutral-950 dark:[--pattern-fg:var(--color-neutral-100)]/5`}
+              className={`${inter.className} relative z-0 bg-white antialiased [--pattern-fg:var(--color-neutral-950)]/5 dark:bg-neutral-950 dark:[--pattern-fg:var(--color-neutral-100)]/5`}
             >
               <Toaster position="bottom-center" />
               <Navbar />

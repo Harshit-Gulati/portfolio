@@ -11,7 +11,7 @@ export const Container = ({
   return (
     <div
       className={cn(
-        "relative mx-auto h-full w-full max-w-4xl bg-white dark:bg-neutral-900",
+        "relative mx-auto h-full w-full max-w-4xl transition-colors duration-500",
         className,
       )}
     >

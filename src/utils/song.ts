@@ -5,7 +5,7 @@ export const getSong = (res: any) => {
   const key = "#text";
 
   const imgSrc =
-    res.image[3][key] === defaultImgSrc ? gradientImgSrc : res.image[3][key];
+    res.image[1][key] === defaultImgSrc ? gradientImgSrc : res.image[3][key];
   const songName = res.name;
   const artistName = res.artist[key];
   const albumName = res.album[key];

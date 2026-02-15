@@ -1,6 +1,6 @@
 import { Container } from "@/components/container";
 import { Scales } from "@/components/scales";
-import { getProjectFrontMatterBySlug, getSingleProject } from "@/utils/mdx";
+import { getItemFrontMatterBySlug, getSingleItem } from "@/utils/mdx";
 import { redirect } from "next/navigation";
 
 export async function generateMetadata({
@@ -8,7 +8,7 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }) {
-  const frontmatter = await getProjectFrontMatterBySlug(params.slug);
+  const frontmatter = await getItemFrontMatterBySlug("projects", params.slug);
 
   if (!frontmatter) return { title: "Project not found" };
 
@@ -24,7 +24,7 @@ export default async function SingleProjectPage({
   params: { slug: string };
 }) {
   const slug = (await params).slug;
-  const project = await getSingleProject(slug);
+  const project = await getSingleItem("projects", slug);
 
   if (!project) redirect("/projects");
 

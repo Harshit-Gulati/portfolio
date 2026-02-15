@@ -1,5 +1,5 @@
 import { Container } from "@/components/container";
-import { getBlogFrontMatterBySlug, getSingleBlog } from "@/utils/mdx";
+import { getItemFrontMatterBySlug, getSingleItem } from "@/utils/mdx";
 import { redirect } from "next/navigation";
 
 export async function generateMetadata({
@@ -7,7 +7,7 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }) {
-  const frontmatter = await getBlogFrontMatterBySlug(params.slug);
+  const frontmatter = await getItemFrontMatterBySlug("blogs", params.slug);
 
   if (!frontmatter) return { title: "Blog not found" };
 
@@ -23,7 +23,7 @@ export default async function SingleBlogPage({
   params: { slug: string };
 }) {
   const slug = (await params).slug;
-  const blog = await getSingleBlog(slug);
+  const blog = await getSingleItem("blogs", slug);
 
   if (!blog) redirect("/blog");
 

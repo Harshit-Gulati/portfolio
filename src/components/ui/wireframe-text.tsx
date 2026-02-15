@@ -1,0 +1,145 @@
+"use client";
+
+import { getLayoutData } from "@/utils/wireframe-text";
+import { WireframeLetter } from "@/components/ui/wireframe-letter";
+import { motion } from "motion/react";
+import { useId, useMemo } from "react";
+
+const getTextGradient = (variant: "light" | "dark") => {
+  return (
+    <linearGradient
+      id={variant === "light" ? "text-gradient-light" : "text-gradient-dark"}
+      x1="0"
+      y1="0"
+      x2="0"
+      y2="1"
+    >
+      {variant === "light" ? (
+        <>
+          <stop offset="0.78" stopColor="#d9d4d4" />
+          <stop offset="1" stopColor="#A29A9A" />
+        </>
+      ) : (
+        <stop stopColor="#1f1e1e" />
+      )}
+    </linearGradient>
+  );
+};
+
+const buildLayers = (
+  layout: { char: string; x: number }[],
+  variant: "light" | "dark",
+) => {
+  const visible: React.ReactNode[] = [];
+  const mask: React.ReactNode[] = [];
+
+  layout.forEach((item, i) => {
+    const props = {
+      key: i,
+      char: item.char,
+      transform: `translate(${item.x}, 0)`,
+    };
+
+    visible.push(
+      <WireframeLetter {...props} key={`visible-${i}`} variant={variant} />,
+    );
+    mask.push(<WireframeLetter {...props} key={`mask-${i}`} variant="mask" />);
+  });
+
+  return { visible, mask };
+};
+
+type WireframeTextProps = {
+  text: string;
+  variant?: "light" | "dark";
+  className?: string;
+  animate?: boolean;
+};
+
+export const WireframeText = ({
+  text,
+  variant = "light",
+  className,
+  animate = false,
+}: WireframeTextProps) => {
+  const uid = useId();
+  const { strokeMaskId, neonScanId, blurFilterId } = useMemo(
+    () => ({
+      strokeMaskId: `stroke-mask-${uid}`,
+      neonScanId: `neon-scan-${uid}`,
+      blurFilterId: `blur-filter-${uid}`,
+    }),
+    [variant, uid],
+  );
+
+  const { layout, totalWidth, height } = useMemo(
+    () => getLayoutData(text),
+    [text],
+  );
+  const { visible, mask } = useMemo(
+    () => buildLayers(layout, variant),
+    [layout, variant],
+  );
+  return (
+    <svg viewBox={`0 0 ${totalWidth} ${height}`} className={className}>
+      {/* Visible Letters */}
+      {visible}
+
+      <defs>
+        {getTextGradient(variant)}
+
+        {animate && (
+          <>
+            {/* Mask with only strokes */}
+            <mask id={strokeMaskId}>{mask}</mask>
+
+            {/* RGB Glow */}
+            <linearGradient id={neonScanId} x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0.125" stopColor="#FF0000" />
+              <stop offset="0.26" stopColor="#FFA500" />
+              <stop offset="0.39" stopColor="#FFFF00" />
+              <stop offset="0.52" stopColor="#008000" />
+              <stop offset="0.65" stopColor="#0000FF" />
+              <stop offset="0.78" stopColor="#4B0082" />
+              <stop offset="0.91" stopColor="#EE82EE" />
+              <stop offset="1" stopColor="#FF0000" />
+            </linearGradient>
+
+            <filter
+              id={blurFilterId}
+              x="-50%"
+              y="-50%"
+              width="200%"
+              height="200%"
+            >
+              <feGaussianBlur stdDeviation="25" in="sourceGraphic" />
+            </filter>
+          </>
+        )}
+      </defs>
+
+      {/* Glow Animation */}
+      {animate && (
+        <g mask={`url(#${strokeMaskId})`}>
+          <motion.circle
+            fill={`url(#${neonScanId})`}
+            filter={`url(#${blurFilterId})`}
+            opacity="1"
+            animate={{
+              r: [30, 50, 30],
+              cx: [0, totalWidth, 0],
+              cy: height / 2,
+              rotate: [0, 360],
+            }}
+            className="origin-center transform-fill"
+            transition={{
+              duration: 7,
+              ease: "easeInOut",
+              repeat: Infinity,
+            }}
+          />
+        </g>
+      )}
+    </svg>
+  );
+};

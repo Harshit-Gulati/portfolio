@@ -1,15 +1,18 @@
+"use client";
+
 import { Project } from "@/constants/projects";
 import { truncateText } from "@/utils/project-description";
 import {
   IconArrowRight,
-  IconArrowUpRight,
   IconBrandGithub,
+  IconWorld,
 } from "@tabler/icons-react";
 import { motion } from "motion/react";
 import { Link } from "next-view-transitions";
 import Image from "next/image";
 import { useState } from "react";
 import { TechTag } from "./tech-tag";
+import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 
 interface ProjectCardProps {
   isInView: boolean;
@@ -37,65 +40,69 @@ export const ProjectCard = ({ isInView, idx, project }: ProjectCardProps) => {
         ease: "easeInOut",
         boxShadow: { duration: 0.3, delay: 0 },
       }}
-      className="group relative mb-4 flex h-96 w-full flex-col items-start rounded-2xl"
+      className="group relative flex flex-col items-start rounded-2xl"
     >
       <Image
         src={project.src}
         alt={project.title}
-        height={300}
-        width={300}
-        className="h-[200px] w-full rounded-xl object-cover transition duration-200 group-hover:scale-[1.02]"
+        width="1920"
+        height="1080"
+        className="aspect-video rounded-xl object-cover transition duration-300 group-hover:scale-[1.02]"
       />
-      <div className="flex h-28 flex-col pr-8 transition-all duration-300 group-hover:pl-4">
+      <div className="py-4">
+        <div className="mb-3 flex items-center justify-between pr-4 transition-all duration-300 group-hover:pl-4">
+          <Link
+            href={`/projects/${project.slug}`}
+            className="z-20 mt-2 w-fit text-lg font-medium tracking-tight text-neutral-500 dark:text-neutral-200"
+          >
+            <div className="flex items-center">{project.title}</div>
+            <span className="block h-0.5 max-w-0 bg-neutral-500 transition-all duration-400 group-hover:max-w-full dark:bg-neutral-200" />
+          </Link>
+          <div className="flex items-center gap-1 text-xs">
+            {project.href && (
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Link
+                    href={project.href}
+                    target="_blank"
+                    className="flex size-6 items-center justify-center text-neutral-500 hover:scale-[1.05] dark:text-neutral-400"
+                  >
+                    <IconWorld size={24} />
+                  </Link>
+                </TooltipTrigger>
+                <TooltipContent className="text-xs">Live Demo</TooltipContent>
+              </Tooltip>
+            )}
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Link
+                  href={project.github}
+                  target="_blank"
+                  className="flex size-6 items-center justify-center text-neutral-500 hover:scale-[1.05] dark:text-neutral-400"
+                >
+                  <IconBrandGithub size={24} />
+                </Link>
+              </TooltipTrigger>
+              <TooltipContent className="text-xs">GitHub</TooltipContent>
+            </Tooltip>
+          </div>
+        </div>
+        <div className="mb-3 flex items-center justify-between pr-12 text-neutral-500 transition-all duration-300 group-hover:pl-4 dark:text-neutral-400">
+          {truncateText(project.description)}
+        </div>
+        <div className="text-sm text-neutral-500 transition-all duration-300 group-hover:pl-4 dark:text-neutral-400">
+          Technologies
+        </div>
+        <div className="mb-3 flex flex-wrap items-center gap-1 pr-8 transition-all duration-300 select-none group-hover:pl-4">
+          {project.tags.map((tag, idx) => (
+            <TechTag key={tag.name + idx} icon={tag.icon} name={tag.name} />
+          ))}
+        </div>
         <Link
           href={`/projects/${project.slug}`}
-          className="z-20 mt-2 w-fit text-base font-medium tracking-tight text-neutral-500 dark:text-neutral-200"
+          className="flex w-fit items-center gap-1 text-sm font-medium tracking-tight text-neutral-500 underline-offset-[6px] transition-all duration-300 group-hover:pl-4 hover:underline dark:text-neutral-400"
         >
-          <div className="flex items-center">
-            <span className="pr-1">{project.title}</span>
-            <motion.span
-              initial={{ maxWidth: 0, opacity: 0 }}
-              animate={{
-                maxWidth: hovered ? 100 : 0,
-                opacity: hovered ? 1 : 0,
-              }}
-              transition={{
-                duration: 0.3,
-                ease: "linear",
-              }}
-            >
-              <IconArrowRight className="size-4" />
-            </motion.span>
-          </div>
-          <span className="block h-0.5 max-w-0 bg-neutral-500 transition-all duration-400 group-hover:max-w-full dark:bg-neutral-200" />
-        </Link>
-        <p className="mt-1 pt-2 text-sm text-neutral-500 dark:text-neutral-400">
-          {truncateText(project.description)}
-        </p>
-      </div>
-      <div className="flex flex-wrap items-center gap-1 pr-8 pb-3 transition-all duration-300 group-hover:pl-4">
-        {project.tags.map((tag, idx) => (
-          <TechTag key={tag.name + idx} icon={tag.icon} name={tag.name} />
-        ))}
-      </div>
-      <div className="flex flex-wrap items-center justify-start gap-1 pr-8 pb-2 text-xs transition-all duration-300 group-hover:pl-4">
-        {project.href && (
-          <Link
-            href={project.href}
-            target="_blank"
-            className="mr-1 flex items-center justify-center rounded-lg border-neutral-200 bg-neutral-100 text-neutral-700 hover:z-10 hover:scale-[1.05] dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-200"
-          >
-            <IconArrowUpRight className="pl-2" />
-            <span className="pr-2 pl-1">Live Demo</span>
-          </Link>
-        )}
-        <Link
-          href={project.github}
-          target="_blank"
-          className="flex items-center justify-center rounded-lg border-neutral-200 bg-neutral-100 text-neutral-700 hover:z-10 hover:scale-[1.05] dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-200"
-        >
-          <IconBrandGithub className="pl-2" />
-          <span className="pr-2 pl-1">GitHub</span>
+          View Details <IconArrowRight size={16} />
         </Link>
       </div>
     </motion.div>

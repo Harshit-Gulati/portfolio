@@ -5,6 +5,7 @@ import React, { useRef } from "react";
 import { SectionHeading } from "../section-heading";
 import { timeline } from "@/constants/timeline";
 import { Step } from "./step";
+import { Heading } from "../heading";
 
 export const Timeline = () => {
   const divRef = useRef<HTMLDivElement | null>(null);
@@ -13,11 +14,12 @@ export const Timeline = () => {
   return (
     <div
       ref={divRef}
-      className="shadow-section-inset my-4 border-y border-neutral-100 px-4 py-4 dark:border-neutral-900"
+      className="my-16 border-neutral-100 px-4 dark:border-neutral-900"
     >
-      <SectionHeading>
+      <SectionHeading className="mb-2">
         Here&apos;s a timeline of my life achievements.
       </SectionHeading>
+      <Heading>Life Updates</Heading>
       {timeline.map((year, idx) => (
         <div key={year.title} className="my-4">
           <motion.h2

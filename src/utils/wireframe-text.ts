@@ -1,0 +1,19 @@
+import { alphabetData } from "@/data/alphabetData";
+
+const LETTER_SPACING = 0;
+
+export const getLayoutData = (text: string) => {
+  let currentX = 0;
+  let height = 0;
+
+  const layout = text.split("").map((char) => {
+    const characterData = alphabetData[char.toUpperCase()] ?? alphabetData[" "];
+    const width = characterData.width;
+    const x = currentX;
+    height = Math.max(characterData.height, height);
+    currentX += width + LETTER_SPACING;
+    return { char, x };
+  });
+
+  return { layout, totalWidth: currentX, height };
+};

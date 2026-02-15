@@ -11,9 +11,8 @@ export const timeline: Timeline[] = [
     title: "2025",
     content: [
       {
-        title: "Future Goal",
-        description:
-          "Looking for software engineering roles to contribute and grow as a full-stack developer.",
+        title: "Software Engineering Internship @ RNT Health Insights",
+        description: "Working on various softwares",
       },
       {
         title: "Internship @ Asezment Technologies Private Limited",

@@ -1,4 +1,5 @@
 "use client";
+
 import { cn } from "@/lib/utils";
 import { motion, useInView } from "motion/react";
 import { useRef } from "react";
@@ -18,7 +19,7 @@ export const SectionHeading = ({
     <h2
       ref={ref}
       className={cn(
-        "relative mt-4 w-fit text-sm font-normal text-neutral-800 md:text-base dark:text-neutral-300",
+        "relative mt-4 w-fit px-2 text-sm font-normal text-neutral-800 transition-colors md:text-base dark:text-neutral-300",
         className,
       )}
     >
@@ -55,12 +56,12 @@ const Background = ({ isInView }: { isInView: boolean }) => {
         ease: "easeInOut",
         delay: 1,
       }}
-      className="absolute inset-0 h-full w-full scale-[1.02] bg-neutral-100 dark:bg-neutral-800"
+      className="absolute inset-0 h-full w-full scale-[1.02] bg-neutral-100 transition-colors dark:bg-neutral-800"
     >
-      <div className="absolute -top-px -left-px h-1 w-1 animate-pulse rounded-full bg-neutral-200" />
-      <div className="absolute -top-px -right-px h-1 w-1 animate-pulse rounded-full bg-neutral-200" />
-      <div className="absolute -bottom-px -left-px h-1 w-1 animate-pulse rounded-full bg-neutral-200" />
-      <div className="absolute -right-px -bottom-px h-1 w-1 animate-pulse rounded-full bg-neutral-200" />
+      <div className="absolute -top-px -left-px h-1 w-1 animate-pulse rounded-full bg-[#9013FE]/50 dark:bg-[#9013FE]/90" />
+      <div className="absolute -top-px -right-px h-1 w-1 animate-pulse rounded-full bg-[#9013FE]/50 delay-1000 dark:bg-[#9013FE]/90" />
+      <div className="absolute -bottom-px -left-px h-1 w-1 animate-pulse rounded-full bg-[#9013FE]/50 delay-600 dark:bg-[#9013FE]/90" />
+      <div className="absolute -right-px -bottom-px h-1 w-1 animate-pulse rounded-full bg-[#9013FE]/50 delay-400 dark:bg-[#9013FE]/90" />
     </motion.div>
   );
 };

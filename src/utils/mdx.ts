@@ -9,90 +9,57 @@ type FrontMatter = {
   date: string;
 };
 
-export const getSingleProject = async (slug: string) => {
-  try {
-    const singleProject = await fs.readFile(
-      path.join(process.cwd(), "src/data/", `${slug}.mdx`),
-      "utf-8",
-    );
+export type ContentType = "blogs" | "projects";
 
-    if (!singleProject) return null;
+const getContentPath = (type: ContentType) =>
+  path.join(process.cwd(), "src/data", type);
+
+export const getSingleItem = async (type: ContentType, slug: string) => {
+  try {
+    const filePath = path.join(getContentPath(type), `${slug}.mdx`);
+    const source = await fs.readFile(filePath, "utf-8");
+
+    if (!source) return null;
 
     const { content, frontmatter } = await compileMDX<FrontMatter>({
-      source: singleProject,
+      source,
       options: { parseFrontmatter: true },
     });
 
     return { content, frontmatter };
   } catch (err) {
-    console.error(`Error reading the file for project slug "${slug}" : `, err);
+    console.error(`Error reading ${type}/${slug}:`, err);
     return null;
   }
 };
 
-export const getProjectFrontMatterBySlug = async (slug: string) => {
-  const singleProject = await fs.readFile(
-    path.join(process.cwd(), "src/data/", `${slug}.mdx`),
-    "utf-8",
-  );
+export const getItemFrontMatterBySlug = async (
+  type: ContentType,
+  slug: string,
+) => {
+  const filePath = path.join(getContentPath(type), `${slug}.mdx`);
+  const source = await fs.readFile(filePath, "utf-8");
 
-  if (!singleProject) return null;
+  if (!source) return null;
 
   const { frontmatter } = await compileMDX<FrontMatter>({
-    source: singleProject,
+    source,
     options: { parseFrontmatter: true },
   });
 
   return frontmatter;
 };
 
-export const getSingleBlog = async (slug: string) => {
-  try {
-    const singleBlog = await fs.readFile(
-      path.join(process.cwd(), "src/data/", `${slug}.mdx`),
-      "utf-8",
-    );
+export const getAllItems = async (type: ContentType) => {
+  const files = await fs.readdir(getContentPath(type));
 
-    if (!singleBlog) return null;
-
-    const { content, frontmatter } = await compileMDX<FrontMatter>({
-      source: singleBlog,
-      options: { parseFrontmatter: true },
-    });
-
-    return { content, frontmatter };
-  } catch (err) {
-    console.error(`Error reading the file for slug "${slug}" : `, err);
-    return null;
-  }
-};
-
-export const getBlogs = async () => {
-  const files = await fs.readdir(path.join(process.cwd(), "src/data/"));
-
-  const allBlogs = await Promise.all(
+  const items = await Promise.all(
     files.map(async (file) => {
       const slug = file.replace(".mdx", "");
-      const frontmatter = await getBlogFrontMatterBySlug(slug);
+      const frontmatter = await getItemFrontMatterBySlug(type, slug);
       return { slug, ...frontmatter };
     }),
   );
 
-  return allBlogs;
-};
-
-export const getBlogFrontMatterBySlug = async (slug: string) => {
-  const singleBlog = await fs.readFile(
-    path.join(process.cwd(), "src/data/", `${slug}.mdx`),
-    "utf-8",
-  );
-
-  if (!singleBlog) return null;
-
-  const { frontmatter } = await compileMDX<FrontMatter>({
-    source: singleBlog,
-    options: { parseFrontmatter: true },
-  });
-
-  return frontmatter;
+  return items;
 };

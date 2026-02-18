@@ -12,7 +12,7 @@ export const ComponentControls = ({
   return (
     <div
       className={cn(
-        "rounded-xl border border-neutral-200 bg-white p-4 backdrop-blur dark:border-neutral-800 dark:bg-neutral-900",
+        "rounded-md border border-neutral-200 bg-white p-4 backdrop-blur dark:border-neutral-800 dark:bg-neutral-900",
         className,
       )}
     >

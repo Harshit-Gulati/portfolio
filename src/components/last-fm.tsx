@@ -3,8 +3,8 @@ import { Player } from "./player";
 
 export const LastFm = () => {
   return (
-    <div className="my-8">
-      <SectionHeading className="mx-4">Last listened to</SectionHeading>
+    <div className="mb-3 flex flex-col gap-3">
+      <SectionHeading className="mt-0">Last listened to</SectionHeading>
       <Player />
     </div>
   );

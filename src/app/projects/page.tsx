@@ -14,17 +14,18 @@ export default function ProjectsPage() {
 
   return (
     <div className="flex items-start justify-start">
-      <Container className="overflow-visible px-2 pt-20 md:px-4 md:pt-24 md:pb-1">
-        <div className="px-4">
-          <Heading>Projects</Heading>
-          <Subheading className="mt-2">
-            These projects reflect my journey as a developer, demonstrating my
-            ability to learn, adapt, and bring ideas to life through code.
-          </Subheading>
-        </div>
+      <Container className="overflow-visible px-4 pt-20 md:pt-28">
+        <Heading className="grainy-text mb-4 text-3xl md:text-5xl">
+          Projects
+        </Heading>
+        <Subheading className="mb-4">
+          These projects reflect my journey as a developer, demonstrating my
+          ability to learn, adapt, and bring ideas to life through code.
+        </Subheading>
+
         <div
           ref={divRef}
-          className="shadow-section-inset mt-4 grid grid-cols-1 gap-8 p-4 md:grid-cols-2"
+          className="shadow-section-inset my-8 grid grid-cols-1 gap-8 md:grid-cols-2"
         >
           {projects.map((project, idx) => (
             <ProjectCard

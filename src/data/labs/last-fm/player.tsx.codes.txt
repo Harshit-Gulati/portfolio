@@ -3,8 +3,14 @@
 import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { Song } from "@/types/song";
 import { defaultSong } from "@/constants/song";
+
+type Song = {
+  src: string;
+  name: string;
+  artist: string;
+  album: string;
+};
 
 const DEFAULT_LQIP =
   "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjMzMzIi8+PC9zdmc+";

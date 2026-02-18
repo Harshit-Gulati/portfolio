@@ -1,4 +1,4 @@
-import { alphabetData } from "@/data/alphabetData";
+import { alphabetData } from "@/data/labs/wireframe-text/alphabetData";
 
 const LETTER_SPACING = 0;
 

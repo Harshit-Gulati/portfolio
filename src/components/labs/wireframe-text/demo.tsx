@@ -5,28 +5,20 @@ import { useTheme } from "next-themes";
 import { ComponentPreview } from "@/components/labs/layout/component-preview";
 import { WireframeText } from "@/components/ui/wireframe-text";
 import { ComponentControls } from "@/components/labs/layout/component-controls";
-import { motion } from "motion/react";
+import { FadeIn } from "@/components/ui/fade-in";
 
 export const WireframeTextDemo = () => {
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const currentVariant = mounted && theme === "dark" ? "dark" : "light";
 
-  const [inputText, setInputText] = useState("Portfolio");
+  const [inputText, setInputText] = useState("Hello");
   const [animate, setAnimate] = useState(true);
 
   useEffect(() => setMounted(true), []);
 
   return (
-    <motion.div
-      className="space-y-6"
-      initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-      transition={{
-        duration: 0.7,
-        ease: [0.22, 1, 0.36, 1],
-      }}
-    >
+    <FadeIn className="space-y-4">
       <ComponentPreview>
         <div className="my-5 flex h-72 w-full items-center justify-center">
           <WireframeText
@@ -61,13 +53,13 @@ export const WireframeTextDemo = () => {
                 type="checkbox"
                 checked={animate}
                 onChange={(e) => setAnimate(e.target.checked)}
-                className="h-4 w-4 rounded border-gray-300 text-neutral-900 focus:ring-neutral-900"
+                className="h-4 w-4 rounded-md border-gray-300 text-neutral-900 focus:ring-neutral-900"
               />
               Animate
             </label>
           </div>
         </div>
       </ComponentControls>
-    </motion.div>
+    </FadeIn>
   );
 };

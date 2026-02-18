@@ -1,11 +1,11 @@
 "use client";
 
 import { useInView, motion } from "motion/react";
-import React, { useRef } from "react";
-import { SectionHeading } from "../section-heading";
+import { useRef } from "react";
+import { SectionHeading } from "../../section-heading";
 import { timeline } from "@/constants/timeline";
 import { Step } from "./step";
-import { Heading } from "../heading";
+import { Heading } from "../../heading";
 
 export const Timeline = () => {
   const divRef = useRef<HTMLDivElement | null>(null);
@@ -14,14 +14,11 @@ export const Timeline = () => {
   return (
     <div
       ref={divRef}
-      className="my-16 border-neutral-100 px-4 dark:border-neutral-900"
+      className="my-8 border-neutral-100 dark:border-neutral-900"
     >
-      <SectionHeading className="mb-2">
-        Here&apos;s a timeline of my life achievements.
-      </SectionHeading>
-      <Heading>Life Updates</Heading>
+      <Heading className="grainy-text mb-5">Life Updates</Heading>
       {timeline.map((year, idx) => (
-        <div key={year.title} className="my-4">
+        <div key={year.title} className="mb-4">
           <motion.h2
             className="shadow-custom mb-2 w-fit rounded-md px-4 py-0.5 font-bold text-neutral-900 dark:text-neutral-100"
             initial={{ filter: "blur(10px)", opacity: 0 }}

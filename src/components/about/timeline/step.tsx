@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { IconCircleCheckFilled } from "@tabler/icons-react";
+import { IconRosetteDiscountCheck } from "@tabler/icons-react";
 import { motion } from "motion/react";
 
 interface StepProps {
@@ -23,7 +23,7 @@ export const Step = ({ className, children, isInView, idx }: StepProps) => (
     }}
     className={cn("flex items-start gap-2", className)}
   >
-    <IconCircleCheckFilled className="mt-0.5 h-5 w-5 text-neutral-500" />
+    <IconRosetteDiscountCheck className="mt-0.5 h-5 w-5 text-[#9013fe]" />
     <motion.h3
       initial={{ y: -10, opacity: 0 }}
       animate={{

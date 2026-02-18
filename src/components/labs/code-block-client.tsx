@@ -27,13 +27,13 @@ export function CodeBlockClient({
   };
 
   return (
-    <div className="group relative my-4 overflow-hidden rounded-lg border border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-800">
+    <div className="group relative mb-4 overflow-hidden rounded-md border border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-800">
       {filename && (
         <div className="flex items-center justify-between border-b border-neutral-100 bg-neutral-200 px-4 py-2 text-xs text-neutral-700 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-400">
           <span>{filename}</span>
           <button
             onClick={handleCopy}
-            className="flex items-center gap-1 transition-colors hover:text-neutral-400 dark:hover:text-white"
+            className={`${copied ? "cursor-default" : "cursor-pointer"} flex items-center gap-1 transition-colors hover:text-neutral-400 dark:hover:text-white`}
           >
             {copied ? (
               <IconCheck size={14} className="text-green-500" />
@@ -49,7 +49,7 @@ export function CodeBlockClient({
       {!filename && (
         <button
           onClick={handleCopy}
-          className="absolute top-2 right-2 z-10 rounded p-1 text-neutral-400 hover:bg-neutral-700 hover:text-white"
+          className={`${copied ? "cursor-default" : "cursor-pointer"} absolute top-2 right-2 z-10 rounded p-1 text-neutral-400 hover:bg-neutral-700 hover:text-white`}
         >
           {copied ? (
             <IconCheck size={14} className="text-green-500" />
@@ -58,15 +58,13 @@ export function CodeBlockClient({
           )}
         </button>
       )}
-      <div className="text-xs" style={{ maxHeight, overflowY: "auto" }}>
+      <div className="max-h-75 overflow-y-auto text-xs">
         <SyntaxHighlighter
           language={language}
           style={vscDarkPlus}
           customStyle={{
             margin: 0,
             borderRadius: 0,
-            padding: "1.5rem",
-            background: "transparent",
           }}
           showLineNumbers={true}
         >

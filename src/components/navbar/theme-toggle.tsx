@@ -64,7 +64,7 @@ export const ThemeToggle = () => {
     <button
       ref={ref}
       onClick={handleThemeChange}
-      className="flex items-center rounded-md p-2 transition-colors duration-300 hover:bg-neutral-100 dark:hover:bg-neutral-800"
+      className="text-primary flex cursor-pointer items-center rounded-md p-2 transition-colors duration-400 hover:text-[#9013fe] dark:text-neutral-200"
     >
       {theme === "dark" ? (
         <motion.span
@@ -74,7 +74,7 @@ export const ThemeToggle = () => {
           exit={{ opacity: 0, rotate: 90 }}
           transition={{ duration: 0.2 }}
         >
-          <IconSun className="size-4 text-neutral-700 dark:text-neutral-200" />
+          <IconSun className="size-4" />
         </motion.span>
       ) : (
         <motion.span
@@ -84,7 +84,7 @@ export const ThemeToggle = () => {
           exit={{ opacity: 0, rotate: -90 }}
           transition={{ duration: 0.2 }}
         >
-          <IconMoon className="size-4 text-neutral-700 dark:text-neutral-200" />
+          <IconMoon className="size-4" />
         </motion.span>
       )}
     </button>

@@ -9,9 +9,10 @@ import { Container } from "./container";
 
 export const Footer = () => {
   return (
-    <Container className="flex justify-between border-t border-neutral-100 px-10 py-3 dark:border-neutral-800">
+    <Container className="flex justify-between border-t border-neutral-200 px-4 py-3 dark:border-neutral-800">
       <p className="flex items-center text-xs text-neutral-500">
-        Built with <IconHeartFilled className="mx-1 size-4" /> by Harshit Gulati
+        Built with <IconHeartFilled className="mx-1 size-4 text-[#9013fe]" /> by
+        Harshit Gulati
       </p>
       <div className="flex items-center justify-center gap-4">
         <Link

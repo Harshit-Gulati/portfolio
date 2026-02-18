@@ -35,9 +35,9 @@ export const ContactForm = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="shadow-section-inset mx-auto my-6 border-y border-neutral-100 px-4 py-12 dark:border-neutral-800"
+      className="mx-auto my-8"
     >
-      <div className="mx-auto flex max-w-lg flex-col gap-5">
+      <div className="mx-auto flex max-w-lg flex-col gap-4">
         <div className="flex flex-col gap-2">
           <label
             htmlFor="name"

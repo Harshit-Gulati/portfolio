@@ -1,6 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Montserrat } from "next/font/google";
 import { Navbar } from "@/components/navbar";
 import { ViewTransitions } from "next-view-transitions";
 import { Footer } from "@/components/footer";
@@ -8,6 +8,11 @@ import { Toaster } from "sonner";
 import { ThemeProvider } from "next-themes";
 
 const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+});
+
+const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800", "900"],
 });
@@ -32,7 +37,7 @@ export default function RootLayout({
         <body>
           <ThemeProvider attribute="class" defaultTheme="dark">
             <main
-              className={`${inter.className} relative z-0 bg-white antialiased [--pattern-fg:var(--color-neutral-950)]/5 dark:bg-neutral-950 dark:[--pattern-fg:var(--color-neutral-100)]/5`}
+              className={`${montserrat.className} relative z-0 bg-white antialiased [--pattern-fg:var(--color-neutral-950)]/5 dark:bg-neutral-950 dark:[--pattern-fg:var(--color-neutral-100)]/5`}
             >
               <Toaster position="bottom-center" />
               <Navbar />

@@ -12,6 +12,7 @@ import { Link } from "next-view-transitions";
 import { navItems } from "@/constants/nav-items";
 import { Logo } from "../logo";
 import { usePathname } from "next/navigation";
+import { FadeIn } from "../ui/fade-in";
 
 export const DesktopNavbar = () => {
   const [scrolled, setScrolled] = useState<boolean>(false);
@@ -42,14 +43,20 @@ export const DesktopNavbar = () => {
         <div className="flex items-center">
           <ThemeToggle />
           {navItems.map((item, idx) => (
-            <Link
-              className="group relative px-2 py-1 text-sm"
-              href={item.href}
+            <motion.span
               key={idx}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             >
-              {item.title}
-              <span className="absolute bottom-0 left-1/2 h-0.5 w-0 -translate-x-1/2 rounded-full bg-[#9013FE] transition-all duration-[400ms] ease-out group-hover:w-[calc(100%-10px)]" />
-            </Link>
+              <Link
+                className="group relative px-2 py-1 text-sm font-medium text-primary"
+                href={item.href}
+              >
+                {item.title}
+                <span className="absolute bottom-0 left-1/2 h-0.5 w-0 -translate-x-1/2 rounded-full bg-[#9013FE] transition-all duration-400 ease-out group-hover:w-[calc(100%-10px)]" />
+              </Link>
+            </motion.span>
           ))}
         </div>
       </motion.nav>

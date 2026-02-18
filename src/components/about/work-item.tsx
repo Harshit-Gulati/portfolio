@@ -29,7 +29,7 @@ export const SingleWorkItem = ({
           />
         </div>
         <div className="flex w-3/5 flex-col items-start text-left">
-          <div className="text-primary flex items-center gap-1 font-semibold">
+          <div className="text-primary flex flex-col items-start md:gap-1 font-semibold md:flex-row md:items-center">
             <Link
               href={work.href}
               target="_blank"
@@ -38,7 +38,7 @@ export const SingleWorkItem = ({
               {work.company}
             </Link>
             {work.isCurrent && (
-              <div className="flex items-center gap-1 rounded border px-1 py-0.5 text-xs font-normal tracking-tight">
+              <div className="flex mb-1 md:mb-0 items-center gap-1 rounded border px-1 py-0.5 text-xs font-normal tracking-tight">
                 <span className="size-2 animate-pulse rounded-full bg-green-600"></span>
                 Working
               </div>

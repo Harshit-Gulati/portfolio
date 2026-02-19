@@ -40,7 +40,7 @@ export default function BlockText() {
               className="group hover:text-primary relative flex gap-1 transition-colors"
             >
               Invoicely.gg <IconExternalLink />
-              <span className="absolute -bottom-0.5 left-1/2 h-0.5 w-0 -translate-x-1/2 rounded-full bg-[#9013FE] transition-all duration-400 ease-out group-hover:w-full" />
+              <span className="absolute -bottom-0.5 left-1/2 h-0.5 w-0 -translate-x-1/2 rounded-full bg-indigo-600 transition-all duration-400 ease-out group-hover:w-full" />
             </Link>
           </Subheading>
         </div>

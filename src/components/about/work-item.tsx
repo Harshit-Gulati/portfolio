@@ -1,26 +1,22 @@
+"use client";
+
 import Image from "next/image";
 import { FadeIn } from "../ui/fade-in";
 import Link from "next/link";
 import { IconChevronDown } from "@tabler/icons-react";
 import { AnimatePresence, motion } from "motion/react";
 import { WorkItem } from "@/data/about/work";
+import { useState } from "react";
 
-export const SingleWorkItem = ({
-  isExpanded,
-  setExpanded,
-  work,
-}: {
-  isExpanded: boolean;
-  setExpanded: () => void;
-  work: WorkItem;
-}) => {
+export const SingleWorkItem = ({ work }: { work: WorkItem }) => {
+  const [isExpanded, setIsExpanded] = useState<boolean>(true);
   return (
     <FadeIn>
       <button
         className="relative flex w-full items-start justify-start gap-2 rounded-md p-2 transition-colors hover:bg-neutral-100 dark:hover:bg-neutral-900"
-        onClick={() => setExpanded()}
+        onClick={() => setIsExpanded((prev) => !prev)}
       >
-        <div className="ring-secondary pointer-events-none relative size-8 shrink-0 rounded-md border border-[#9013fe80] select-none">
+        <div className="ring-secondary pointer-events-none relative size-8 shrink-0 rounded-md border border-indigo-600/80 select-none">
           <Image
             src={work.logo}
             fill
@@ -29,16 +25,20 @@ export const SingleWorkItem = ({
           />
         </div>
         <div className="flex w-3/5 flex-col items-start text-left">
-          <div className="text-primary flex flex-col items-start md:gap-1 font-semibold md:flex-row md:items-center">
-            <Link
-              href={work.href}
-              target="_blank"
-              className="underline-offset-2 hover:underline"
-            >
-              {work.company}
-            </Link>
+          <div className="text-primary flex flex-col items-start font-semibold md:flex-row md:items-center md:gap-1">
+            {work.href == "" ? (
+              <div>{work.company}</div>
+            ) : (
+              <Link
+                href={work.href}
+                target="_blank"
+                className="underline-offset-2 hover:underline"
+              >
+                {work.company}
+              </Link>
+            )}
             {work.isCurrent && (
-              <div className="flex mb-1 md:mb-0 items-center gap-1 rounded border px-1 py-0.5 text-xs font-normal tracking-tight">
+              <div className="mb-1 flex items-center gap-1 rounded border px-1 py-0.5 text-xs font-normal tracking-tight md:mb-0">
                 <span className="size-2 animate-pulse rounded-full bg-green-600"></span>
                 Working
               </div>

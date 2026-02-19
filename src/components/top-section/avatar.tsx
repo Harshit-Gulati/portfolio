@@ -16,13 +16,13 @@ export const Avatar = () => {
           : { opacity: 0, filter: "blur(12px)" }
       }
       transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-      className="pointer-events-none size-24 shrink-0 select-none md:size-44"
+      className="pointer-events-none size-20 shrink-0 select-none md:size-40"
     >
       <Image
         src="/avatar.jpg"
         width={150}
         height={150}
-        className="size-full rounded-md object-cover shadow-[0_0_5px_#9013FE50,0_0_15px_#9013FE60,0_0_20px_#9013FE4d] md:shadow-[0_0_5px_#9013FE50,0_0_35px_#9013FE60,0_0_60px_#9013FE4d]"
+        className="size-full rounded-md object-cover shadow-[0_0_5px_#4F46E550,0_0_15px_#4F46E560,0_0_20px_#4F46E54d] md:shadow-[0_0_5px_#4F46E550,0_0_35px_#4F46E560,0_0_60px_#4F46E54d]"
         alt="avatar"
         onLoad={() => setIsLoading(false)}
       />

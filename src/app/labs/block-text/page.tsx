@@ -17,7 +17,7 @@ export default function WireframeTextPage() {
           <Link
             href="https://invoicely.gg/"
             target="_blank"
-            className="group relative inline-flex items-center gap-1 font-medium text-neutral-900 hover:text-[#9013FE] dark:text-neutral-100"
+            className="group relative inline-flex items-center gap-1 font-medium text-neutral-900 hover:text-indigo-600 dark:text-neutral-100"
           >
             Invoicely.gg <IconExternalLink size={14} />
           </Link>

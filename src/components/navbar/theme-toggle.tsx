@@ -64,7 +64,7 @@ export const ThemeToggle = () => {
     <button
       ref={ref}
       onClick={handleThemeChange}
-      className="text-primary flex cursor-pointer items-center rounded-md p-2 transition-colors duration-400 hover:text-[#9013fe] dark:text-neutral-200"
+      className="text-primary flex cursor-pointer items-center rounded-md p-2 transition-colors duration-400 hover:text-indigo-600 dark:text-neutral-200"
     >
       {theme === "dark" ? (
         <motion.span

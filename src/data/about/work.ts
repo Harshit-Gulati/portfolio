@@ -12,7 +12,7 @@ export type WorkItem = {
 export const works: WorkItem[] = [
   {
     company: "RNT Health Insights",
-    location: "Remote | November 2025 - Present",
+    location: "Chandigarh, India | November 2025 - Present",
     logo: "/rnt.webp",
     alt: "RNT logo",
     href: "https://www.rntinsights.com/",

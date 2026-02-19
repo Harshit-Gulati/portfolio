@@ -51,13 +51,13 @@ export const ProjectCard = ({ isInView, idx, project }: ProjectCardProps) => {
       />
       <div className="py-4">
         <div className="mb-3 flex items-center justify-between pr-4 transition-all duration-300 group-hover:pl-4">
-          <Link
-            href={`/projects/${project.slug}`}
+          <div
+            // href={`/projects/${project.slug}`}
             className="z-20 mt-2 w-fit text-lg font-medium tracking-tight text-neutral-500 dark:text-neutral-200"
           >
             <div className="flex items-center">{project.title}</div>
             <span className="block h-0.5 max-w-0 bg-neutral-500 transition-all duration-400 group-hover:max-w-full dark:bg-neutral-200" />
-          </Link>
+          </div>
           <div className="flex items-center gap-1 text-xs">
             {project.href && (
               <Tooltip>
@@ -98,12 +98,12 @@ export const ProjectCard = ({ isInView, idx, project }: ProjectCardProps) => {
             <TechTag key={tag.name + idx} icon={tag.icon} name={tag.name} />
           ))}
         </div>
-        <Link
+        {/* <Link
           href={`/projects/${project.slug}`}
           className="flex w-fit items-center gap-1 text-sm font-medium tracking-tight text-neutral-500 underline-offset-[6px] transition-all duration-300 group-hover:pl-4 hover:underline dark:text-neutral-400"
         >
           View Details <IconArrowRight size={16} />
-        </Link>
+        </Link> */}
       </div>
     </motion.div>
   );

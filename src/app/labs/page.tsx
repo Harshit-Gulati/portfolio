@@ -66,7 +66,7 @@ const Card = ({
     <FadeIn>
       <Link
         href={href}
-        className="group block overflow-hidden rounded-md border border-neutral-200 bg-neutral-50 shadow-[#9013fe] transition-all hover:border-[#9013fe80] hover:shadow-sm dark:border-neutral-800 dark:bg-black"
+        className="group block overflow-hidden rounded-md border border-neutral-200 bg-neutral-50 shadow-indigo-600 transition-all hover:border-indigo-600/80 hover:shadow-sm dark:border-neutral-800 dark:bg-black"
       >
         <div className="relative flex h-52 items-center justify-center overflow-hidden border-b border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
           <div
@@ -82,7 +82,7 @@ const Card = ({
         </div>
 
         <div className="p-4 pt-2">
-          <div className="text-primary mb-1 text-base font-semibold tracking-tight transition-colors group-hover:text-[#9013fe]">
+          <div className="text-primary mb-1 text-base font-semibold tracking-tight transition-colors group-hover:text-indigo-600">
             {componentName}
           </div>
           <div className="text-secondary text-sm leading-relaxed">

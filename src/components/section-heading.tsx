@@ -58,10 +58,10 @@ const Background = ({ isInView }: { isInView: boolean }) => {
       }}
       className="absolute inset-0 h-full w-full scale-[1.02] bg-neutral-100 transition-colors dark:bg-neutral-800"
     >
-      <div className="absolute -top-px -left-px h-1 w-1 animate-pulse rounded-full bg-[#9013FE]/50 dark:bg-[#9013FE]/90" />
-      <div className="absolute -top-px -right-px h-1 w-1 animate-pulse rounded-full bg-[#9013FE]/50 delay-1000 dark:bg-[#9013FE]/90" />
-      <div className="absolute -bottom-px -left-px h-1 w-1 animate-pulse rounded-full bg-[#9013FE]/50 delay-600 dark:bg-[#9013FE]/90" />
-      <div className="absolute -right-px -bottom-px h-1 w-1 animate-pulse rounded-full bg-[#9013FE]/50 delay-400 dark:bg-[#9013FE]/90" />
+      <div className="absolute -top-px -left-px h-1 w-1 animate-pulse rounded-full bg-indigo-600/50 dark:bg-indigo-600/90" />
+      <div className="absolute -top-px -right-px h-1 w-1 animate-pulse rounded-full bg-indigo-600/50 delay-1000 dark:bg-indigo-600/90" />
+      <div className="absolute -bottom-px -left-px h-1 w-1 animate-pulse rounded-full bg-indigo-600/50 delay-600 dark:bg-indigo-600/90" />
+      <div className="absolute -right-px -bottom-px h-1 w-1 animate-pulse rounded-full bg-indigo-600/50 delay-400 dark:bg-indigo-600/90" />
     </motion.div>
   );
 };

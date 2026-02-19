@@ -5,7 +5,7 @@ import { SocialLinks } from "./social-links";
 
 export const TopSection = () => {
   return (
-    <div className="mb-16 flex h-48 flex-col-reverse gap-2 md:flex-row">
+    <div className="mb-16 flex h-fit flex-col-reverse gap-2 md:flex-row">
       <div className="flex h-full w-full flex-col items-start justify-start">
         <Heading className="grainy-text text-3xl md:text-5xl">
           Harshit Gulati

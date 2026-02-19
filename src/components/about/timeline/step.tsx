@@ -23,7 +23,7 @@ export const Step = ({ className, children, isInView, idx }: StepProps) => (
     }}
     className={cn("flex items-start gap-2", className)}
   >
-    <IconRosetteDiscountCheck className="mt-0.5 h-5 w-5 text-[#9013fe]" />
+    <IconRosetteDiscountCheck className="mt-0.5 h-5 w-5 text-indigo-600" />
     <motion.h3
       initial={{ y: -10, opacity: 0 }}
       animate={{

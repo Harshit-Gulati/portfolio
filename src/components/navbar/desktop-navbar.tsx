@@ -54,7 +54,7 @@ export const DesktopNavbar = () => {
                 href={item.href}
               >
                 {item.title}
-                <span className="absolute bottom-0 left-1/2 h-0.5 w-0 -translate-x-1/2 rounded-full bg-[#9013FE] transition-all duration-400 ease-out group-hover:w-[calc(100%-10px)]" />
+                <span className="absolute bottom-0 left-1/2 h-0.5 w-0 -translate-x-1/2 rounded-full bg-indigo-600 transition-all duration-400 ease-out group-hover:w-[calc(100%-10px)]" />
               </Link>
             </motion.span>
           ))}

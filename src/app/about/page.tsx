@@ -19,10 +19,10 @@ export default function AboutPage() {
           maintainable code and I'm looking for opportunities to grow as a
           software developer while contributing to impactful projects.
         </Subheading>
-        <div className="mt-8">
+        <div className="my-8">
           <WorkExperience />
         </div>
-        <Timeline />
+        {/* <Timeline /> */}
       </Container>
     </div>
   );

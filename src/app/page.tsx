@@ -9,11 +9,12 @@ import { projects } from "@/constants/projects";
 export default function Home() {
   return (
     <div className="flex items-start justify-start">
-      <Container className="overflow-visible px-4 pt-32">
+      <Container className="overflow-visible px-4 pt-20 md:pt-28">
         <TopSection />
         <WorkExperience />
         <Projects projects={projects.slice(0, 3)} />
-        <Timeline />
+        {/* <Timeline /> */}
+        <div className="h-8 w-full" />
         <LastFm />
       </Container>
     </div>

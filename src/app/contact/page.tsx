@@ -1,9 +1,17 @@
 import { ContactForm } from "@/components/contact-form";
 import { Container } from "@/components/container";
 import { Heading } from "@/components/heading";
-import { Scales } from "@/components/scales";
 import { Subheading } from "@/components/subheading";
-import { Timeline } from "@/components/about/timeline";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact Me",
+  description:
+    "Get in touch with Harshit Gulati for software engineering, full-time offers, freelance work, or collaboration opportunities.",
+  alternates: {
+    canonical: "/contact",
+  },
+};
 
 export default function ContactPage() {
   return (
@@ -12,7 +20,9 @@ export default function ContactPage() {
         <Heading className="grainy-text mb-4 text-3xl md:text-5xl">
           Contact Me
         </Heading>
-        <Subheading className="mb-4">I&apos;m open to freelance/full time offers.</Subheading>
+        <Subheading className="mb-4">
+          I&apos;m open to freelance/full time offers.
+        </Subheading>
         <ContactForm />
       </Container>
     </div>

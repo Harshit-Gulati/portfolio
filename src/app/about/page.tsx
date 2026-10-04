@@ -2,7 +2,16 @@ import { WorkExperience } from "@/components/about/work-experience";
 import { Container } from "@/components/container";
 import { Heading } from "@/components/heading";
 import { Subheading } from "@/components/subheading";
-import { Timeline } from "@/components/about/timeline";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Me",
+  description:
+    "Learn more about Harshit Gulati, a software developer focusing on Next.js, React, C++, and QML. Read about my work experience and coding journey.",
+  alternates: {
+    canonical: "/about",
+  },
+};
 
 export default function AboutPage() {
   return (
@@ -22,7 +31,6 @@ export default function AboutPage() {
         <div className="my-8">
           <WorkExperience />
         </div>
-        {/* <Timeline /> */}
       </Container>
     </div>
   );

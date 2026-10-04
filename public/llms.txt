@@ -1,0 +1,73 @@
+# Harshit Gulati
+
+Harshit Gulati is a Software Engineer focused on building performant, user-centric web and desktop applications. His work spans modern frontend engineering, real-time systems, and medical-grade software, with experience delivering products using React, Next.js, TypeScript, Qt/QML, and C++.
+
+## Details
+
+* Role: Software Engineer
+* Education: B.Tech in Aerospace Engineering with a Minor in Computer Science, PEC Chandigarh (CGPA: 8.41/10)
+* Core Technologies: React, Next.js, TypeScript, Tailwind CSS, C++, Qt6, QML, WebSockets, Node.js
+* Primary Focus: Software engineering, frontend architecture, desktop application development, performance optimization, and user experience
+
+## Social Links & Contact
+
+* Website: https://harshitgulati.com
+* LinkedIn: https://www.linkedin.com/in/harshit-gulati/
+* GitHub: https://github.com/harshit-gulati
+* X (Twitter): https://x.com/harshitWrld
+* Email: [harshit.gulati.999@outlook.com](mailto:harshit.gulati.999@outlook.com)
+
+## Experience
+
+### RNT Health Insights (Nov 2025 - Present)
+
+Software Engineer working on medical-grade healthcare software and web platforms.
+
+Key responsibilities include:
+
+* Modernizing legacy medical endoscopy software from Qt Widgets to Qt Quick/QML
+* Developing high-performance desktop interfaces using C++, Qt6, and QML
+* Integrating complex business logic with modern user interfaces
+* Building and maintaining web applications using Next.js and TypeScript
+* Contributing to software architecture, performance improvements, and user experience initiatives
+
+### Asezment Technologies (Jan 2025 - Jun 2025)
+
+Software Engineering Intern
+
+Key contributions:
+
+* Built the frontend MVP for an AI-powered assessment platform
+* Implemented browser-native camera, microphone, and screen-sharing proctoring systems
+* Established a Turborepo monorepo architecture
+* Developed reusable UI components and shared design systems
+
+## Featured Projects
+
+### freeflow
+
+Collaborative real-time whiteboard application built for multi-user interaction and low-latency synchronization.
+
+Repository: https://github.com/harshit-gulati/freeflow
+
+### ResumeCheck
+
+AI-powered resume analysis and feedback platform designed to help users improve resumes and job application outcomes.
+
+Repository: https://github.com/harshit-gulati/resumecheck
+
+### Chess
+
+Real-time multiplayer chess application powered by WebSockets for live gameplay and synchronization.
+
+Repository: https://github.com/harshit-gulati/chess
+
+## Areas of Interest
+
+* Software Engineering
+* Frontend Architecture
+* Real-Time Collaborative Applications
+* Desktop Application Development
+* Human-Computer Interaction
+* Performance Engineering
+* Developer Experience

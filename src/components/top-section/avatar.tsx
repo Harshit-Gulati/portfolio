@@ -23,7 +23,7 @@ export const Avatar = () => {
         width={150}
         height={150}
         className="size-full rounded-md object-cover shadow-[0_0_5px_#4F46E550,0_0_15px_#4F46E560,0_0_20px_#4F46E54d] md:shadow-[0_0_5px_#4F46E550,0_0_35px_#4F46E560,0_0_60px_#4F46E54d]"
-        alt="avatar"
+        alt="Harshit Gulati Portrait Avatar"
         onLoad={() => setIsLoading(false)}
       />
     </motion.div>

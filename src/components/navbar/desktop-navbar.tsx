@@ -12,7 +12,6 @@ import { Link } from "next-view-transitions";
 import { navItems } from "@/constants/nav-items";
 import { Logo } from "../logo";
 import { usePathname } from "next/navigation";
-import { FadeIn } from "../ui/fade-in";
 
 export const DesktopNavbar = () => {
   const [scrolled, setScrolled] = useState<boolean>(false);
@@ -26,7 +25,7 @@ export const DesktopNavbar = () => {
   return (
     <div className="fixed inset-x-0 top-3 z-50 mx-auto hidden max-w-4xl md:block">
       <motion.nav
-        className={`mx-auto flex max-w-4xl items-center justify-between rounded-md px-2 py-2 ${scrolled && "backdrop-blur-xl"} transition-colors duration-500`}
+        className={`mx-auto flex max-w-4xl items-center justify-between rounded-md px-2 py-2 ${scrolled && "border border-indigo-600/1 bg-indigo-600/9 backdrop-blur-xl"} transition-colors duration-500`}
         style={{
           boxShadow: scrolled ? "var(--shadow-custom)" : "none",
         }}
@@ -50,7 +49,7 @@ export const DesktopNavbar = () => {
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             >
               <Link
-                className="group relative px-2 py-1 text-sm font-medium text-primary"
+                className="group text-primary relative px-2 py-1 text-sm font-medium transition-colors duration-400 hover:text-indigo-600"
                 href={item.href}
               >
                 {item.title}

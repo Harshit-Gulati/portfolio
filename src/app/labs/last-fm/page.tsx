@@ -1,12 +1,21 @@
 import { Container } from "@/components/container";
 import { Heading } from "@/components/heading";
 import { Subheading } from "@/components/subheading";
-import { CodeBlocks } from "@/components/labs/wireframe-text/code-blocks";
 import { FadeIn } from "@/components/ui/fade-in";
 import { Player } from "@/components/player";
 import { ComponentPreview } from "@/components/labs/layout/component-preview";
 import { CodeBlockClient } from "@/components/labs/code-block-client";
 import { lastFmCodes } from "@/data/labs/last-fm/codes";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Last FM Component | Labs",
+  description:
+    "An dynamic Last.fm custom player component that displays real-time track updates and album art.",
+  alternates: {
+    canonical: "/labs/last-fm",
+  },
+};
 
 export default function WireframeTextPage() {
   return (
@@ -29,7 +38,7 @@ export default function WireframeTextPage() {
           </div>
 
           <FadeIn className="space-y-6 lg:col-span-5">
-            <Heading as="h5" className="text-xl font-semibold">
+            <Heading as="h2" className="text-xl font-semibold">
               Installation
             </Heading>
             <FadeIn>

@@ -130,7 +130,7 @@ const GSvg = ({ className }: { className: string }) => {
 
 export const Logo = () => {
   return (
-    <div className="flex h-[78px] w-fit scale-[0.41] drop-shadow-lg">
+    <div className="flex h-19.5 w-fit scale-[0.41] drop-shadow-lg">
       <motion.div
         className="-mr-1 flex h-full w-fit items-start"
         initial={{ y: -20, opacity: 0 }}

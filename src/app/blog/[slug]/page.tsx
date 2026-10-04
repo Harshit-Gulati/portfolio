@@ -5,22 +5,51 @@ import { redirect } from "next/navigation";
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const frontmatter = await getItemFrontMatterBySlug("blogs", params.slug);
+  const resolvedParams = await params;
+  const frontmatter = await getItemFrontMatterBySlug("blogs", resolvedParams.slug);
 
   if (!frontmatter) return { title: "Blog not found" };
 
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://harshitgulati.com";
+  const postUrl = `${siteUrl}/blog/${resolvedParams.slug}`;
+  const title = `${frontmatter.title} | Harshit Gulati`;
+  const description = frontmatter.description;
+  const image = frontmatter.image || "/og-image.jpg";
+
   return {
-    title: frontmatter.title + " - Harshit Gulati",
-    description: frontmatter.description,
+    title,
+    description,
+    alternates: {
+      canonical: `/blog/${resolvedParams.slug}`,
+    },
+    openGraph: {
+      type: "article",
+      url: postUrl,
+      title,
+      description,
+      publishedTime: frontmatter.date,
+      images: [
+        {
+          url: image,
+          alt: frontmatter.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [image],
+    },
   };
 }
 
 export default async function SingleBlogPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
   const slug = (await params).slug;
   const blog = await getSingleItem("blogs", slug);

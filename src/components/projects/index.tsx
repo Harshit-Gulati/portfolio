@@ -16,7 +16,7 @@ export const Projects = ({ projects }: { projects: Project[] }) => {
       ref={divRef}
       className="mt-16 border-neutral-100 dark:border-neutral-900"
     >
-      <Heading className="grainy-text">Projects</Heading>
+      <Heading as="h2" className="grainy-text">Projects</Heading>
       <div className="grid grid-cols-1 mt-5 gap-8 md:grid-cols-2">
         {projects.map((project, idx) => (
           <ProjectCard

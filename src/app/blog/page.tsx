@@ -46,21 +46,21 @@ const BlogList = ({
 };
 
 const BlogCard = ({ blog }: { blog: any }) => {
+  const imageUrl = blog.image && blog.image.trim() !== "" ? blog.image : "/og-image.jpg";
   return (
     <>
       <Link
         href={`/blog/${blog.slug}`}
         className="group flex flex-col gap-2 rounded-md border border-neutral-950/10 p-2 dark:border-neutral-100/10"
       >
-        <div className="rounded-md border border-neutral-950/10 dark:border-neutral-100/10">
+        <div className="rounded-md border border-neutral-950/10 dark:border-neutral-100/10 overflow-hidden relative aspect-[1200/630]">
           <Image
-            alt="React Wheel Picker joins Vercel Open Source Program"
+            alt={blog.title || "Blog post cover image"}
             width="1200"
             height="630"
-            className="relative aspect-1200/630 rounded-md select-none"
+            className="object-cover rounded-md select-none transition duration-300 group-hover:scale-[1.02]"
             decoding="async"
-            data-nimg="1"
-            src="https://assets.chanhdai.com/images/blog/react-wheel-picker-joins-vercel-open-source-program.webp"
+            src={imageUrl}
           />
         </div>
         <div className="flex flex-col gap-1 p-2">

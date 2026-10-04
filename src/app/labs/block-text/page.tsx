@@ -6,6 +6,16 @@ import { IconExternalLink } from "@tabler/icons-react";
 import { WireframeTextDemo } from "@/components/labs/wireframe-text/demo";
 import { CodeBlocks } from "@/components/labs/wireframe-text/code-blocks";
 import { FadeIn } from "@/components/ui/fade-in";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Oblique Wireframe Text | Labs",
+  description:
+    "A custom projection-based oblique wireframe text component built with React and Tailwind CSS.",
+  alternates: {
+    canonical: "/labs/block-text",
+  },
+};
 
 export default function WireframeTextPage() {
   return (
@@ -31,7 +41,7 @@ export default function WireframeTextPage() {
           </div>
 
           <FadeIn className="space-y-6 lg:col-span-5">
-            <Heading as="h5" className="text-xl font-semibold">
+            <Heading as="h2" className="text-xl font-semibold">
               Installation
             </Heading>
             <CodeBlocks />

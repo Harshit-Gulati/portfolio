@@ -22,22 +22,23 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://harshitgulati.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Harshit Gulati | Passionate Software Developer",
+    default: "Harshit Gulati | Software Engineer & Builder",
     template: "%s | Harshit Gulati",
   },
   description:
-    "Harshit Gulati is a software developer and final-year B.Tech student specializing in React, Next.js, C++, and QML. Explore my projects, blog, and development labs.",
+    "Harshit Gulati is a Software Engineer and Aerospace Engineering graduate (CS minor) from PEC, building high-performance C++/QML desktop systems and modern web applications.",
   keywords: [
     "Harshit Gulati",
-    "Software Developer",
     "Software Engineer",
-    "Portfolio",
+    "Aerospace Engineering",
+    "Computer Science Minor",
+    "PEC Chandigarh",
+    "Qt Developer",
+    "QML Developer",
+    "C++ Developer",
     "Next.js Developer",
     "React Developer",
-    "C++ Developer",
-    "QML Developer",
-    "Web Developer",
-    "B.Tech Student",
+    "Full Stack Developer",
   ],
   authors: [{ name: "Harshit Gulati", url: siteUrl }],
   creator: "Harshit Gulati",
@@ -53,9 +54,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName: "Harshit Gulati Portfolio",
-    title: "Harshit Gulati | Passionate Software Developer",
+    title: "Harshit Gulati | Software Engineer & Builder",
     description:
-      "Harshit Gulati is a software developer specializing in React, Next.js, C++, and QML. Explore my projects, blog, and development labs.",
+      "Harshit Gulati is a Software Engineer and Aerospace Engineering graduate (CS minor) from PEC, building high-performance C++/QML desktop systems and modern web applications.",
     images: [
       {
         url: "/og-image.jpg",
@@ -67,9 +68,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Harshit Gulati | Passionate Software Developer",
+    title: "Harshit Gulati | Software Engineer & Builder",
     description:
-      "Harshit Gulati is a software developer specializing in React, Next.js, C++, and QML. Explore my projects, blog, and development labs.",
+      "Harshit Gulati is a Software Engineer and Aerospace Engineering graduate (CS minor) from PEC, building high-performance C++/QML desktop systems and modern web applications.",
     images: ["/og-image.jpg"],
     creator: "@harshitWrld",
   },
@@ -93,13 +94,17 @@ export default function RootLayout({
           "https://www.linkedin.com/in/harshit-gulati/",
           "https://x.com/harshitWrld"
         ],
-        "jobTitle": "Software Developer",
+        "jobTitle": "Software Engineer",
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Punjab Engineering College (PEC)"
+        },
         "worksFor": {
           "@type": "Organization",
           "name": "RNT Health Insights",
           "url": "https://www.rntinsights.com/"
         },
-        "description": "Software developer focused on building modern, responsive, and user-first web applications using React, Next.js, C++, and QML."
+        "description": "Software engineer and Aerospace Engineering graduate (CS minor) from PEC, engineering real-time C++/QML medical software and modern web applications."
       },
       {
         "@type": "WebSite",

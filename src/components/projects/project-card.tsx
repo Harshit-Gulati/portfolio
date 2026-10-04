@@ -1,109 +1,106 @@
 "use client";
 
-import { Project } from "@/constants/projects";
-import { truncateText } from "@/utils/project-description";
-import {
-  IconArrowRight,
-  IconBrandGithub,
-  IconWorld,
-} from "@tabler/icons-react";
-import { motion } from "motion/react";
-import { Link } from "next-view-transitions";
 import Image from "next/image";
-import { useState } from "react";
+import Link from "next/link";
+import { Project } from "@/constants/projects";
+import {
+  IconArrowUpRight,
+  IconBrandGithub,
+  IconSparkles,
+} from "@tabler/icons-react";
 import { TechTag } from "./tech-tag";
-import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
+import { motion } from "motion/react";
 
 interface ProjectCardProps {
-  isInView: boolean;
-  idx: number;
   project: Project;
+  idx?: number;
+  isInView?: boolean;
 }
 
-export const ProjectCard = ({ isInView, idx, project }: ProjectCardProps) => {
-  const [hovered, setHovered] = useState<boolean>(false);
-
+export const ProjectCard = ({
+  project,
+  idx = 0,
+  isInView = true,
+}: ProjectCardProps) => {
   return (
     <motion.div
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      initial={{ opacity: 0, filter: "blur(10px)", y: 10 }}
+      initial={{ opacity: 0, filter: "blur(8px)", y: 12 }}
       animate={{
         opacity: isInView ? 1 : 0,
-        filter: isInView ? "blur(0px)" : "blur(10px)",
-        y: isInView ? 0 : 10,
+        filter: isInView ? "blur(0px)" : "blur(8px)",
       }}
-      whileHover={{ boxShadow: "var(--shadow-custom)" }}
       transition={{
-        duration: 0.3,
-        delay: idx * 0.1,
-        ease: "easeInOut",
-        boxShadow: { duration: 0.3, delay: 0 },
+        duration: 0.35,
+        delay: idx * 0.08,
+        ease: "easeOut",
       }}
-      className="group relative flex flex-col items-start rounded-2xl"
+      className="group relative flex flex-col justify-between overflow-hidden rounded-md border border-neutral-200/80 bg-neutral-900/2 p-5 transition-all duration-300 hover:border-indigo-500/40 hover:bg-neutral-900/4 hover:shadow-[0_0_30px_rgba(99,102,241,0.08)] dark:border-neutral-800/80 dark:bg-neutral-900/30 dark:hover:border-indigo-500/30 dark:hover:bg-neutral-900/60 dark:hover:shadow-[0_0_30px_rgba(99,102,241,0.12)]"
     >
-      <Image
-        src={project.src}
-        alt={project.title}
-        width="1920"
-        height="1080"
-        className="aspect-video rounded-xl object-cover transition duration-300 group-hover:scale-[1.02]"
-      />
-      <div className="py-4">
-        <div className="mb-3 flex items-center justify-between pr-4 transition-all duration-300 group-hover:pl-4">
-          <div
-            // href={`/projects/${project.slug}`}
-            className="z-20 mt-2 w-fit text-lg font-medium tracking-tight text-neutral-500 dark:text-neutral-200"
-          >
-            <div className="flex items-center">{project.title}</div>
-            <span className="block h-0.5 max-w-0 bg-neutral-500 transition-all duration-400 group-hover:max-w-full dark:bg-neutral-200" />
-          </div>
-          <div className="flex items-center gap-1 text-xs">
-            {project.href && (
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Link
-                    href={project.href}
-                    target="_blank"
-                    className="flex size-6 items-center justify-center text-neutral-500 hover:scale-[1.05] dark:text-neutral-400"
-                  >
-                    <IconWorld size={24} />
-                  </Link>
-                </TooltipTrigger>
-                <TooltipContent className="text-xs">Live Demo</TooltipContent>
-              </Tooltip>
-            )}
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Link
-                  href={project.github}
-                  target="_blank"
-                  className="flex size-6 items-center justify-center text-neutral-500 hover:scale-[1.05] dark:text-neutral-400"
-                >
-                  <IconBrandGithub size={24} />
-                </Link>
-              </TooltipTrigger>
-              <TooltipContent className="text-xs">GitHub</TooltipContent>
-            </Tooltip>
-          </div>
+      {/* Ambient gradient aura */}
+      <div className="pointer-events-none absolute -top-12 -right-12 size-40 rounded-full bg-linear-to-br from-indigo-500/10 via-purple-500/5 to-transparent blur-2xl transition-opacity duration-500 group-hover:opacity-100 dark:from-indigo-500/15" />
+
+      <div>
+        {/* Floating App Stage */}
+        <div className="relative aspect-video w-full overflow-hidden rounded-md border border-neutral-200/80 bg-neutral-100 shadow-xs dark:border-neutral-800 dark:bg-neutral-950">
+          <Image
+            src={project.src}
+            alt={project.title}
+            fill
+            className="object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+          />
+          {/* Subtle top glare */}
+          <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-white/10 dark:to-white/5" />
         </div>
-        <div className="mb-3 flex items-center justify-between pr-12 text-neutral-500 transition-all duration-300 group-hover:pl-4 dark:text-neutral-400">
-          {truncateText(project.description)}
+
+        {/* Content */}
+        <div className="pt-5">
+          <h3 className="text-lg font-bold tracking-tight text-neutral-900 dark:text-neutral-100">
+            {project.title}
+          </h3>
+
+          <p className="mt-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
+            {project.description}
+          </p>
         </div>
-        <div className="text-sm text-neutral-500 transition-all duration-300 group-hover:pl-4 dark:text-neutral-400">
-          Technologies
+      </div>
+
+      {/* Buttons and Skills Footer Area */}
+      <div className="mt-6 space-y-4 border-t border-neutral-200/70 pt-4 dark:border-neutral-800/70">
+        {/* Action Buttons: Equal size & above skills */}
+        <div className="grid grid-cols-2 gap-2.5">
+          {project.href ? (
+            <Link
+              href={project.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex w-full items-center justify-center gap-1.5 rounded-md border border-neutral-200 bg-white py-2 text-xs font-medium text-neutral-900 shadow-2xs transition-colors hover:border-indigo-600 hover:text-indigo-600 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-100 dark:hover:border-indigo-500 dark:hover:text-indigo-400"
+            >
+              <span>Live Demo</span>
+              <IconArrowUpRight size={13} />
+            </Link>
+          ) : (
+            <div />
+          )}
+
+          {project.github && (
+            <Link
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex w-full items-center justify-center gap-1.5 rounded-md border border-neutral-200 bg-white py-2 text-xs font-medium text-neutral-900 shadow-2xs transition-colors hover:border-indigo-600 hover:text-indigo-600 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-100 dark:hover:border-indigo-500 dark:hover:text-indigo-400"
+            >
+              <IconBrandGithub size={14} />
+              <span>Source Code</span>
+            </Link>
+          )}
         </div>
-        <div className="mb-3 flex flex-wrap items-center gap-1 pr-8 transition-all duration-300 select-none group-hover:pl-4">
-          {project.tags.map((tag, idx) => (
-            <TechTag key={tag.name + idx} icon={tag.icon} name={tag.name} />
+
+        {/* Skills: Original hover-to-expand tags at bottom */}
+        <div className="flex flex-wrap items-center pt-1 select-none">
+          {project.tags.map((tag, tIdx) => (
+            <TechTag key={tag.name + tIdx} icon={tag.icon} name={tag.name} />
           ))}
         </div>
-        {/* <Link
-          href={`/projects/${project.slug}`}
-          className="flex w-fit items-center gap-1 text-sm font-medium tracking-tight text-neutral-500 underline-offset-[6px] transition-all duration-300 group-hover:pl-4 hover:underline dark:text-neutral-400"
-        >
-          View Details <IconArrowRight size={16} />
-        </Link> */}
       </div>
     </motion.div>
   );

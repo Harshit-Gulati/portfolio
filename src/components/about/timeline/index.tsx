@@ -9,7 +9,7 @@ import { Heading } from "../../heading";
 
 export const Timeline = () => {
   const divRef = useRef<HTMLDivElement | null>(null);
-  const isInView = useInView(divRef, { once: true, amount: 0.6 });
+  const isInView = useInView(divRef, { once: true, amount: 0.1 });
 
   return (
     <div

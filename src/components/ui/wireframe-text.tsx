@@ -69,7 +69,7 @@ export const WireframeText = ({
       neonScanId: `neon-scan-${uid}`,
       blurFilterId: `blur-filter-${uid}`,
     }),
-    [variant, uid],
+    [uid],
   );
 
   const { layout, totalWidth, height } = useMemo(

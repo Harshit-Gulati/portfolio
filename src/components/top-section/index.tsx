@@ -11,8 +11,10 @@ export const TopSection = () => {
           Harshit Gulati
         </Heading>
         <Subheading className="pt-2">
-          Final-year B.Tech student and software developer, focused on building
-          modern, responsive, and user-first web applications.
+          Aerospace engineer and software builder. Graduated with a B.Tech in
+          Aerospace Engineering and minor in Computer Science from PEC. Crafting
+          high-performance systems, real-time desktop software and modern web
+          experiences.
         </Subheading>
         <SocialLinks />
       </div>
